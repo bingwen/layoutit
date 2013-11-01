@@ -48,27 +48,30 @@
     <script
             type="text/javascript" src="js/scripts.js"></script>
     <script
-        type="text/javascript" src="js/subtitle_player_js.js">
-   </script>
+            type="text/javascript" src="js/subtitle_player_js.js"></script>
+ 
 
-<script>
-    var sub_text = new Array;
-    var sub_start = new Array;
-    var sub_end = new Array;
-    var srt_json =$.getJSON( "1.json", 
-    function(data) {
+    <script>
+        var sub_text_en = new Array;
+        var sub_text_cn = new Array;
 
-        $.each(data,function(i,item){
-            sub_text .push(item.text);
-            sub_end  .push(item.end);
-            sub_start.push(item.start);
+        var sub_start_cn = new Array;
+        var sub_end_cn = new Array;
 
-            <!--console.log(i + "start: " + item.start +"  "+ "end:" + item.end + "  text:  " + item.text );-->
-        });
+        var sub_start_en = new Array;
+        var sub_end_en = new Array;
 
-    });
+        var sub_index_en = new Array;
+        var sub_index_cn = new Array;
 
-</script>
+        var sub_json_en = new Array;
+        var sub_json_cn = new Array;
+
+
+        subtitle_getjson("1_en.json", "en");
+        subtitle_getjson("1_cn.json", "cn");
+
+    </script>
 
 </head>
 
@@ -76,25 +79,25 @@
 <body>
 <div class="container-fluid">
 
- 
+
     <div class="row-fluid">
         <div
                 class="col-md-12">
             <div class="video_asset col-md-4
                             col-md-offset-4">
 
-                   <div id="youkuplayer"></div>
+                <div id="youkuplayer"></div>
                 <script type="text/javascript" src="http://player.youku.com/jsapi">
                     player = new YKU.Player('youkuplayer', {
                         client_id: '60068cce9888a5c',
-                        vid: 'XNjI4MzkzNDky',
+                        vid: 'XNjI5MTYyNjI4',
                         width: '100%',
                         height: '100%',
                         autoplay: false,
                         show_related: true,
                         events: {
                             <!--onPlayerReady: function () {-->
-                                <!--alert("I am an ready alert box!");-->
+                            <!--alert("I am an ready alert box!");-->
                             <!--},-->
                             onPlayEnd: function () {
                                 alert("I am an playend alert box!");
@@ -109,8 +112,7 @@
                 </script>
 
 
-
-                <div id="subtitle_player"> fdsfsdf</div>
+                <div class="srt" id="subtitle_player"> fdsfsdf</div>
 
 
             </div>
