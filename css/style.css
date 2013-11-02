@@ -1,5 +1,26 @@
 #subtitle_player{
-height:100px;
-
-background-color: #000000;
+    height:100px;
+    margin-top:-5px;
+    background-color: #000000;
 }
+
+#subtitle_player .sub-btn{
+    position: relative;
+    top:62px;
+}
+
+#subtitle_player .btn{
+    position: relative;
+    top:65%;
+    left:85%;
+}
+
+.video_asset {
+   width: 640px;
+}
+
+#youkuplayer {
+    margin-top: 100px;
+    height: 498px;
+}
+
