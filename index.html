@@ -37,10 +37,11 @@
             type="text/javascript" src="js/bootstrap.min.js"></script>
     <script
             type="text/javascript" src="js/scripts.js"></script>
-    <script
-            type="text/javascript" src="js/subtitle_player_js.js"></script>
-    <script>
 
+        <script
+        type="text/javascript" src="js/subtitle_player_js.js">
+</script>
+    <script>
         var sub_text_en = new Array;
         var sub_text_cn = new Array;
 
@@ -56,13 +57,9 @@
         var sub_json_en = new Array;
         var sub_json_cn = new Array;
 
-
-
         subtitle_getjson("1_en.json", "en");
         subtitle_getjson("1_cn.json", "cn");
-
     </script>
-
 </head>
 
 
@@ -91,9 +88,12 @@
                             <!--},-->
                             onPlayEnd: function () {
                                 alert("I am an playend alert box!");
+                                stop_player = true;
                             },
                             onPlayStart: function () {
                                 alert("I am an playstart alert box!");
+                                stop_player = false;
+                                subtitle_player();
                             }
                         }
                     });
@@ -103,8 +103,10 @@
 
 
                 <div class="srt_asset" id="subtitle_player">
-                    <div class="srt-en"></div>
-                    <div class="srt-cn"></div>
+                    <div class="srt-textarea">
+                        <div class="srt-en"></div>
+                        <div class="srt-cn"></div>
+                    </div>
                     <div class='sub-btn'>
                         <button class="btn btn-cn btn-success" type="button">中</button>
                         <button class="btn btn-en btn-success" type="button">英</button>
