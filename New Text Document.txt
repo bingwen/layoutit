@@ -1,0 +1,22 @@
+function position_sub_index() {
+    // item 79
+    var i = sub_index_en.length;
+    while (sub_index_en[--i] <
+    elapse_from_start);
+
+    subtitle_index=i;
+    // item 81
+    during_break=false
+    during_playing=false
+}
+
+jQuery.fn.delay = function(time,func){
+    this.each(function(){
+    	setTimeout(func,time);
+    });
+
+    return this;
+};
+/*
+ //@ sourceMappingURL=subtitle_player_js.map
+ */
