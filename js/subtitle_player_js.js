@@ -12,6 +12,8 @@ var during_playing = false;
 var elapse_incre_fun;
 var in_loop = false;
 var wait_for_sync_flag = false;
+var start_time = 0;
+var now_time=0;
 
 function playVideo() {
     player.playVideo();
@@ -82,20 +84,6 @@ $(document).ready(function () {
 });
 
 
-function wait_for_flashtime_sync() {
-
-    wait_for_sync_flag = true;
-    if (elapse_from_start - flashplayer_curtime != 0) {
-        flashplayer_curtime = Number(currentTime()) * 1000;
-    }
-    else
-    {
-        elapse_from_start += 8;
-        elapse_incre_fun = setInterval(function () { elapse_from_start += 10; }, 10);
-        wait_for_sync_flag = false;
-    }
-}
-
 function position_sub_index() {
     // item 79
     var i = sub_index_en.length - 1;
@@ -165,17 +153,28 @@ function subtitle_player() {
         // item 27
         if (disp_lang_indi == 0) {
 
-        } else {
-//item 38
-            if (wait_for_sync_flag == true)
-            {
-                wait_for_flashtime_sync();
-            }
-            //item 39
+        }
 
-            elapse_incre_fun = setTimeout(function () {
-                elapse_from_start += 10;
-            }, 10);
+        else {
+
+            if ( wait_for_sync_flag == true )
+            {
+                flashplayer_curtime = Number(currentTime()) * 1000;
+                if ( flashplayer_curtime != elapse_from_start )
+                {
+                    $('.srt-textarea').children().text("");
+                    break;
+                }
+                else
+                {
+                    wait_for_sync_flag = false;
+                    position_sub_index();
+                    start_time =  (new Date()).getTime();
+                }
+            }
+            else{
+
+            //item 39
 
             // item 37
             flashplayer_curtime = Number(currentTime()) * 1000;
@@ -185,25 +184,24 @@ function subtitle_player() {
                 // item 22
                 //"elapse_from_start = flashplayer_curtime"
                 elapse_from_start = flashplayer_curtime + 1000;
-                //item 36
-                wait_for_flashtime_sync();
-
-                // item 25
-                //position sub index
-                position_sub_index();
-                // item 80
+                wait_for_sync_flag = true;
                 during_break = false;
                 during_playing = false;
+                break;
+                //item 36
 
             }
             else {
-
+                now_time = (new Date()).getTime();
+                elapse_from_start += now_time - start_time ;
+                start_time = now_time;
             }
             //sub
             // item 390001
             if (elapse_from_start < sub_start_en[subtitle_index]) {
                 during_break = true;
                 during_playing = false;
+                $('.srt-textarea').children().text("");
             } else {
                 // item 390002
                 if ((elapse_from_start >= sub_start_en[subtitle_index]) && (elapse_from_start <= sub_end_en[subtitle_index])) {
@@ -244,6 +242,7 @@ function subtitle_player() {
                         } else {
                             // item 51
                             //Clear sub text
+                            $('.srt-textarea').children().text("");
                             during_break = true;
                         }
                     }
@@ -253,6 +252,7 @@ function subtitle_player() {
         // item 72
         // pause 8 mill
         break;
+        }
     }
 // item 18
 
@@ -264,7 +264,7 @@ function subtitle_player() {
 //"clearInterval(everycall);"
     }
     else {
-        _.delay(subtitle_player, 8);
+        _.delay(subtitle_player, 10);
     }
 
 }
