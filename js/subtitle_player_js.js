@@ -9,6 +9,7 @@ var flashplayer_curtime = 0;
 var subtitle_index = 0;
 var during_break = false;
 var during_playing = false;
+var elapse_incre_fun;
 var in_loop = false;
 
 function playVideo() {
@@ -80,6 +81,14 @@ $(document).ready(function () {
 });
 
 
+function wait_for_flashtime_sync() {
+
+    if (elapse_from_start - flashplayer_curtime > 15) {
+        flashplayer_curtime = Number(currentTime()) * 1000;
+        _.delay(wait_for_flashtime_sync, 1);
+    }
+}
+
 function position_sub_index() {
     // item 79
     var i = sub_index_en.length - 1;
@@ -128,13 +137,13 @@ function subtitle_player() {
         subtitle_index = 0;
         during_break = false;
         during_playing = false;
-        elapse_from_start = 10;
+        elapse_from_start = 0;
         // item 17
         //"var everycall = setInterval(function(){....youfunc,10);"
         //"10 mill every call"
-//        var elapse_incre_fun = setInterval(function () {
-//            elapse_from_start += 10;
-//        }, 10);
+        elapse_incre_fun = setInterval(function () {
+            elapse_from_start += 10;
+        }, 10);
         in_loop = true;
     }
     else {
@@ -160,7 +169,12 @@ function subtitle_player() {
 
                 // item 22
                 //"elapse_from_start = flashplayer_curtime"
-                elapse_from_start = flashplayer_curtime;
+                clearInterval(elapse_incre_fun);
+                elapse_from_start = flashplayer_curtime + 1000;
+                wait_for_flashtime_sync();
+                elapse_incre_fun = setInterval(function () {
+                    elapse_from_start += 10;
+                }, 10);
                 // item 25
                 //position sub index
                 position_sub_index();
@@ -225,7 +239,6 @@ function subtitle_player() {
         }
         // item 72
         // pause 8 mill
-        setTimeout(subtitle_player(), 8);
         break;
     }
 // item 18
@@ -238,8 +251,12 @@ function subtitle_player() {
 //"clearInterval(everycall);"
         clearInterval(elapse_incre_fun);
     }
+    else {
+        _.delay(subtitle_player, 8);
+    }
 
 }
+
 
 /*
  //@ sourceMappingURL=subtitle_player_js.map

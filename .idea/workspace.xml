@@ -5,8 +5,8 @@
     <ignored path="layoutit.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/subtitle_player_js.coffee" changelist="4b577a20-17e5-468a-8240-4ea3020c784f" time="1383313279755" ignored="false" />
-    <file path="/index.html" changelist="4b577a20-17e5-468a-8240-4ea3020c784f" time="1383398230558" ignored="false" />
-    <file path="/subtitle_player_js.js" changelist="4b577a20-17e5-468a-8240-4ea3020c784f" time="1383413331012" ignored="false" />
+    <file path="/index.html" changelist="4b577a20-17e5-468a-8240-4ea3020c784f" time="1383443545696" ignored="false" />
+    <file path="/subtitle_player_js.js" changelist="4b577a20-17e5-468a-8240-4ea3020c784f" time="1383448706050" ignored="false" />
     <file path="/style.css" changelist="4b577a20-17e5-468a-8240-4ea3020c784f" time="1383380053975" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,28 +27,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="541" selection-end="541" vertical-scroll-proportion="-0.42992625">
+            <state line="67" column="29" selection-start="2351" selection-end="2351" vertical-scroll-proportion="-7.9069767">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="subtitle_player_js.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="subtitle_player_js.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/subtitle_player_js.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="225" column="17" selection-start="6341" selection-end="6341" vertical-scroll-proportion="0.0">
+            <state line="179" column="36" selection-start="4768" selection-end="4768" vertical-scroll-proportion="0.5566905">
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="http://www.voicetoyou.cn/js/jquery.min.js">
-          <provider selected="true" editor-type-id="httpFileEditor">
-            <state />
           </provider>
         </entry>
       </file>
@@ -66,8 +59,8 @@
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="C:/Program Files/drakon_editor/subtitle_player.js" />
         <option value="www.voicetoyou.cn/js/jquery.min.js" />
-        <option value="$PROJECT_DIR$/js/subtitle_player_js.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/subtitle_player_js.js" />
       </list>
     </option>
   </component>
@@ -183,6 +176,7 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3392116" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.15234375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="-811" y="211" width="268" height="964" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.34439835" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="-1764" y="1039" width="1625" height="706" />
@@ -193,7 +187,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -261,7 +254,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="77" />
+      <option name="time" value="91" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -333,13 +326,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/subtitle_player_js.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="225" column="17" selection-start="6341" selection-end="6341" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="http://www.voicetoyou.cn/js/jquery.min.js">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
@@ -347,7 +333,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="541" selection-end="541" vertical-scroll-proportion="-0.42992625">
+        <state line="67" column="29" selection-start="2351" selection-end="2351" vertical-scroll-proportion="-7.9069767">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/subtitle_player_js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="36" selection-start="4768" selection-end="4768" vertical-scroll-proportion="0.5566905">
           <folding />
         </state>
       </provider>
