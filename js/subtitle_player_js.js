@@ -11,6 +11,7 @@ var during_break = false;
 var during_playing = false;
 var elapse_incre_fun;
 var in_loop = false;
+var wait_for_sync_flag = false;
 
 function playVideo() {
     player.playVideo();
@@ -83,9 +84,15 @@ $(document).ready(function () {
 
 function wait_for_flashtime_sync() {
 
-    if (elapse_from_start - flashplayer_curtime > 15) {
+    wait_for_sync_flag = true;
+    if (elapse_from_start - flashplayer_curtime != 0) {
         flashplayer_curtime = Number(currentTime()) * 1000;
-        _.delay(wait_for_flashtime_sync, 1);
+    }
+    else
+    {
+        elapse_from_start += 8;
+        elapse_incre_fun = setInterval(function () { elapse_from_start += 10; }, 10);
+        wait_for_sync_flag = false;
     }
 }
 
@@ -141,9 +148,6 @@ function subtitle_player() {
         // item 17
         //"var everycall = setInterval(function(){....youfunc,10);"
         //"10 mill every call"
-        elapse_incre_fun = setInterval(function () {
-            elapse_from_start += 10;
-        }, 10);
         in_loop = true;
     }
     else {
@@ -162,6 +166,17 @@ function subtitle_player() {
         if (disp_lang_indi == 0) {
 
         } else {
+//item 38
+            if (wait_for_sync_flag == true)
+            {
+                wait_for_flashtime_sync();
+            }
+            //item 39
+
+            elapse_incre_fun = setTimeout(function () {
+                elapse_from_start += 10;
+            }, 10);
+
             // item 37
             flashplayer_curtime = Number(currentTime()) * 1000;
             // item 19
@@ -169,12 +184,10 @@ function subtitle_player() {
 
                 // item 22
                 //"elapse_from_start = flashplayer_curtime"
-                clearInterval(elapse_incre_fun);
                 elapse_from_start = flashplayer_curtime + 1000;
+                //item 36
                 wait_for_flashtime_sync();
-                elapse_incre_fun = setInterval(function () {
-                    elapse_from_start += 10;
-                }, 10);
+
                 // item 25
                 //position sub index
                 position_sub_index();
@@ -249,7 +262,6 @@ function subtitle_player() {
         $('.srt-textarea').children().text("");
 // item 4
 //"clearInterval(everycall);"
-        clearInterval(elapse_incre_fun);
     }
     else {
         _.delay(subtitle_player, 8);
