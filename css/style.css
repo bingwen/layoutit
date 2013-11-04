@@ -1,22 +1,29 @@
-#subtitle_player{
-    height:100px;
-    margin-top:-5px;
+#subtitle_player {
     background-color: #000000;
 }
 
-#subtitle_player .sub-btn{
-    position: relative;
-    top:62px;
+#subtitle_player .sub-btn {
+    float: right;
+    padding-right: 5px;
+    padding-bottom: 5px;
 }
 
-#subtitle_player .btn{
+#subtitle_player .srt-textarea{
+    color: #FFFFFF;
+    min-height: 70px;
+    text-align: center;
     position: relative;
-    top:65%;
-    left:85%;
+    padding: 5px;
+}
+
+#subtitle_player .bottom-tool{
+    overflow: auto;
 }
 
 .video_asset {
-   width: 640px;
+    position: relative;
+    width: 640px;
+    bottom: 40px;
 }
 
 #youkuplayer {
