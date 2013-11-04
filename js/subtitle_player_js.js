@@ -159,18 +159,19 @@ function subtitle_player() {
 
             if ( wait_for_sync_flag == true )
             {
+                during_break = false;
+                during_playing = false;
                 flashplayer_curtime = Number(currentTime()) * 1000;
-                if ( flashplayer_curtime != elapse_from_start )
+                if ( flashplayer_curtime == elapse_from_start )
                 {
-                    $('.srt-textarea').children().text("");
-                    break;
+                    wait_for_sync_flag = false;
+                    start_time =  (new Date()).getTime();
                 }
                 else
                 {
-                    wait_for_sync_flag = false;
-                    position_sub_index();
-                    start_time =  (new Date()).getTime();
+                    elapse_from_start = flashplayer_curtime + 1000;
                 }
+                position_sub_index();
             }
             else{
 
@@ -187,7 +188,7 @@ function subtitle_player() {
                 wait_for_sync_flag = true;
                 during_break = false;
                 during_playing = false;
-                break;
+//                $('.srt-textarea').children().text("");
                 //item 36
 
             }
@@ -195,6 +196,7 @@ function subtitle_player() {
                 now_time = (new Date()).getTime();
                 elapse_from_start += now_time - start_time ;
                 start_time = now_time;
+            }
             }
             //sub
             // item 390001
@@ -248,7 +250,7 @@ function subtitle_player() {
                     }
                 }
             }
-        }
+
         // item 72
         // pause 8 mill
         break;
