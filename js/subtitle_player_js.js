@@ -53,12 +53,13 @@ $(document).ready(function () {
     $('.btn-en').on('click', function () {
         if ($(this).hasClass('btn-success')) {
             disp_lang_indi = ~(~disp_lang_indi | 1);
-            $('.srt-textarea').find('.srt-en').remove();
+//            $('.srt-textarea').find('.srt-en').remove();
             remove_disp_lang_inArray("en");
+            $('.srt-textarea').find('.srt-en').text("");
         }
         else {
             disp_lang_indi |= 1;
-            $('.srt-textarea').prepend('<div class="srt-en"></div>');
+//            $('.srt-textarea').prepend('<div class="srt-en"></div>');
             disp_lang_array.push("en");
         }
 
@@ -69,12 +70,13 @@ $(document).ready(function () {
     $('.btn-cn').on('click', function () {
         if ($(this).hasClass('btn-success')) {
             disp_lang_indi = ~(~disp_lang_indi | 2);
-            $('.srt-textarea').find('.srt-cn').remove();
+//            $('.srt-textarea').find('.srt-cn').remove();
             remove_disp_lang_inArray("cn");
+            $('.srt-textarea').find('.srt-cn').text("");
         }
         else {
             disp_lang_indi |= 2;
-            $('.srt-textarea').append('<div class="srt-cn"></div>');
+//            $('.srt-textarea').append('<div class="srt-cn"></div>');
             disp_lang_array.push("cn");
         }
 
@@ -151,7 +153,7 @@ function subtitle_player() {
 
         }
         // item 27
-        if (disp_lang_indi == 0) {
+        if ( 0 ) {
 
         }
 
@@ -209,15 +211,20 @@ function subtitle_player() {
                 if ((elapse_from_start >= sub_start_en[subtitle_index]) && (elapse_from_start <= sub_end_en[subtitle_index])) {
                     // item 56
 
-                    if (during_playing == true) {
-
-                    } else {
+//                    if (during_playing == true) {
+//
+//                    } else {
                         // item 58
                         //print sub_by_lang
-                        disp_sub_by_lang(disp_lang_array);
+                        if( disp_lang_indi == 0)
+                        {
+                        }
+                        else{
+                            disp_sub_by_lang(disp_lang_array);
+                        }
                         during_playing = true
                         during_break = false;
-                    }
+//                    }
                 }
                 else {
                     // item 390003
@@ -233,8 +240,14 @@ function subtitle_player() {
                         // item 68
                         subtitle_index += 1;
                         // item 58
-                        disp_sub_by_lang(disp_lang_array);
-                        during_playing = true;
+
+                        if( disp_lang_indi == 0)
+                        {
+                        }
+                        else{
+                            disp_sub_by_lang(disp_lang_array);
+                        }
+                        during_playing = true
                         during_break = false;
                     }
                     else {
@@ -266,7 +279,7 @@ function subtitle_player() {
 //"clearInterval(everycall);"
     }
     else {
-        _.delay(subtitle_player, 10);
+        _.delay(subtitle_player, 20);
     }
 
 }
