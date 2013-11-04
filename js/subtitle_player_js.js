@@ -135,6 +135,7 @@ function subtitle_player() {
         during_break = false;
         during_playing = false;
         elapse_from_start = 0;
+        start_time =  (new Date()).getTime();
         // item 17
         //"var everycall = setInterval(function(){....youfunc,10);"
         //"10 mill every call"
@@ -274,6 +275,11 @@ function subtitle_player() {
 // item 34
 //Clear sub text
     if (in_loop == false) {
+        flashplayer_curtime = 0;
+        subtitle_index = 0;
+        during_break = false;
+        during_playing = false;
+        elapse_from_start = 0;
         $('.srt-textarea').children().text("");
 // item 4
 //"clearInterval(everycall);"
